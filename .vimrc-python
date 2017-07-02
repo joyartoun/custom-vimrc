@@ -1,4 +1,8 @@
+" Set line numbering
+set nu
+" Fix so backpace deletes text
 set backspace=indent,eol,start
+
 set nocompatible              " required
 filetype off                  " required
 
@@ -19,7 +23,11 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 "PEP8 checking
 Plugin 'nvie/vim-flake8'
+"Autocomplete 
 Plugin 'davidhalter/jedi-vim'
+" Colorschemes
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
@@ -36,6 +44,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " Create function Highlight whitespace 
 highlight BadWhitespace ctermbg=red guibg=darkred
+
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -55,6 +64,11 @@ au BufNewFile,BufRead *.py,*.pyw,*.c,*.h
 " Mathes bad whitespace, referenced further up.   
     \ match BadWhitespace /\s\+$/
 
+" Adds support for full stack development
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2|
+    \ set softtabstop=2|
+    \ set shiftwidth=2| 
 " UTF8 support
 set encoding=utf-8
 
@@ -72,5 +86,11 @@ EOF
 let python_highlight_all=1
 syntax on
 
-" Split right
-let g:jedi#use_splits_not_buffers = "right"
+" Set correct colorscheme
+if has('gui_running')
+	  set background=dark
+	    colorscheme solarized
+    else
+	      colorscheme zenburn
+      endif
+
