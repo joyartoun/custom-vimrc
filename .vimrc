@@ -3,9 +3,10 @@
 "molokai och hybrid colorschemes                                                                                                     
 "pretty-vim-python
 "Flake8 python linter, install with python<version> -m pip install flake8
+"To install pip on a new machine, you need epel repo. See guides online.
 "For color, download guicolorscheme.vim and put it in .vim/colors and add set \
-"t_Co=256
-
+"t_Co=256 in this file
+"
 
 set t_Co=256
 execute pathogen#infect()
