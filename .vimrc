@@ -6,7 +6,9 @@
 "To install pip on a new machine, you need epel repo. See guides online.
 "For color, download guicolorscheme.vim and put it in .vim/colors and add set \
 "t_Co=256 in this file
-"
+
+"Enable indenting for filetypes
+filetype indent on
 
 set t_Co=256
 execute pathogen#infect()
@@ -27,7 +29,7 @@ set background=dark
 colorscheme hybrid
 
 "disable syntastic on the statusline
-let g:statline_syntastic = 0
+let g:statline_syntastic = 1
 let g:syntastic_always_populate_loc_list = 1 
 let g:syntastic_auto_loc_list = 1 
 let g:syntastic_check_on_open = 1 
@@ -45,6 +47,8 @@ au BufNewFile,BufRead *.py
     \ set shiftwidth=4 |
     \ set expandtab |
     \ set autoindent |
+    \ set smarttab |
+    \ set textwidth=80 |
 
 ".js
 let g:javascript_plugin_flow = 1 
@@ -63,16 +67,16 @@ au BufNewFile,BufRead *.sh
     \ set autoindent |
 
 "Statusline
-"set laststatus=2
+set laststatus=2
 
-"set statusline =
-"set statusline +=col:\ %c		"column
-"set statusline +=%4*\ %<%F%*            "full path
-"set statusline +=%2*%m%*                "modified flag
-"set statusline +=%1*%=%5l%*             "current line
-"set statusline +=%2*/%L%*               "total lines
-"set statusline +=%0*\ \ %m%r%w\ %P\ \   "Modified? Readonly? Top/bot.
+set statusline =
+set statusline +=col:\ %c		"column
+set statusline +=%4*\ %<%F%*            "full path
+set statusline +=%2*%m%*                "modified flag
+set statusline +=%1*%=%5l%*             "current line
+set statusline +=%2*/%L%*               "total lines
+set statusline +=%0*\ \ %m%r%w\ %P\ \   "Modified? Readonly? Top/bot.
 
-"set statusline +=%#warningmsg#
+set statusline +=%#warningmsg#
 "set statusline +=%{SyntasticStatuslineFlag()}
-"set statusline +=%*
+set statusline +=%*
