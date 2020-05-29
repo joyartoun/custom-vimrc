@@ -11,7 +11,7 @@
 filetype indent on
 
 set t_Co=256
-execute pathogen#infect()
+"execute pathogen#infect()
 
 set number
 set cursorline
